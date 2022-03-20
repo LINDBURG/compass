@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         val degrees = (Math.toDegrees(SensorManager.getOrientation(r, orientation)[0].toDouble()) + 360).toFloat() % 360
 
         SensorManager.getRotationMatrix(r, null, lastAccelerometer, lastMagnetometer)
-        binding.degree.text = "Heading : ${degrees.toInt()} degrees"
+        binding.degree.text = String.format(getString(R.string.degree), degrees.toInt())
 
         val ra = RotateAnimation(currentDegree, -degrees, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         ra.duration = 250
